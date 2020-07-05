@@ -227,7 +227,4 @@ gpgconf --launch gpg-agent
 
 ## Encrypt message
 
-
-
-
 ## Github
