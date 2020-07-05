@@ -167,7 +167,7 @@ keybase pgp select
 
 ## Configure gpg-agent
 
-First install GPG suit on macOS (disable Mail.app plugin since it costs memory). Then configure the gpg-agent as follow:
+First install GPG suit on macOS (disable Mail.app plugin since it costs memory). Then configure the gpg-agent (`$HOME/.gnupg/gpg-agent.conf`) as follow:
 
 ```
 default-cache-ttl 600
@@ -208,6 +208,12 @@ gpg --edit-key SOME_ID...
 ```
 
 Then type `trust` to trust the key.
+
+To check SSH agent if the SSH public key has been added:
+
+```
+ssh-add -L
+```
 
 
 Not sure
