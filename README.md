@@ -135,7 +135,7 @@ then type `toggle`. Now select key 1 by typing `key 1` and then type `keytocard`
 
 Select the type as `Signature key`.
 
-Now un-toggle key 1 by typing `key 1` and then toggle key 2 by typing `key 2`. Repeat the previous steps but using(`Encryption key`) for key 2. Further repeat again for key 3 with `Authentication key`. Finally type `save`
+Now un-toggle key 1 by typing `key 1` and then toggle key 2 by typing `key 2`. Repeat the previous steps but with `Encryption key` for key 2. Further repeat again for key 3 with `Authentication key`. Finally type `save`
 
 * Enabling Touch-to-Sign/Decrypt (for more security if something happened in background):
 
