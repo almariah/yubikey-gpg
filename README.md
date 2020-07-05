@@ -33,13 +33,12 @@ default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB
 EOF
 ```
 
-* Generate Master Key
-
-- RSA (sign only)
-- 4096 bits
-- for 5y
-- Abdullah Almariah
-- abdullahalmariah@gmail.com
+* Generate Master Key with these spec:
+    - RSA (sign only)
+    - 4096 bits
+    - for 5y
+    - Abdullah Almariah
+    - abdullahalmariah@gmail.com
 
 ```bash
 gpg --full-generate-key
