@@ -86,7 +86,7 @@ mkdir ~/gpg
 gpg --gen-revoke 0xD60BAB29C43A7D86 > ~/gpg/revoke.asc
 ```
 
-The choose `Key has been compromised`.
+Then choose `Key has been compromised`.
 
 * Backup keys:
 
@@ -95,7 +95,7 @@ gpg -a --output ~/gpg/0xD60BAB29C43A7D86.master.asc --export-secret-key 0xD60BAB
 gpg -a --output ~/gpg/0xD60BAB29C43A7D86.subkeys.asc --export-secret-subkey 0xD60BAB29C43A7D86
 ```
 
-* Backup the following files to 2 usb sticks and never use it.
+* Backup the following files to 2 usb sticks and keep them in safe place.
 
 - `~/gpg/0xD60BAB29C43A7D86.master.asc`
 - `~/gpg/0xD60BAB29C43A7D86.subkeys.asc`
