@@ -34,11 +34,11 @@ EOF
 ```
 
 * Generate Master Key with these spec:
-    - RSA (sign only)
-    - 4096 bits
-    - for 5y
-    - Abdullah Almariah
-    - abdullahalmariah@gmail.com
+    - `RSA (sign only)`
+    - `4096` bits
+    - for `5y`
+    - `Abdullah Almariah`
+    - `abdullahalmariah@gmail.com`
 
 ```bash
 gpg --full-generate-key
@@ -96,11 +96,10 @@ gpg -a --output ~/gpg/0xD60BAB29C43A7D86.subkeys.asc --export-secret-subkey 0xD6
 ```
 
 * Backup the following files to 2 usb sticks and keep them in safe place.
-
-- `~/gpg/0xD60BAB29C43A7D86.master.asc`
-- `~/gpg/0xD60BAB29C43A7D86.subkeys.asc`
-- `~/gpg/revoke.asc`
-- `~/.gnupg/gpg.conf`
+    - `~/gpg/0xD60BAB29C43A7D86.master.asc`
+    - `~/gpg/0xD60BAB29C43A7D86.subkeys.asc`
+    - `~/gpg/revoke.asc`
+    - `~/.gnupg/gpg.conf`
 
 * Trust the keys by the following command and then type `trust` and choose `I trust ultimately`
 
