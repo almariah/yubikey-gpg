@@ -236,3 +236,17 @@ git config --global user.signingkey SOME_KEY_ID...
 ```
 
 then commit with `-S` option.
+
+## Switch to another yubikey
+
+If you switched to another yubikey run the following:
+
+```bash
+rm -r ~/.gnupg/private-keys-v1.d/*
+gpgconf --kill gpg-agent
+gpgconf --launch gpg-agent
+```
+
+# References
+
+* https://zeos.ca/post/2018/gpg-yubikey5/
