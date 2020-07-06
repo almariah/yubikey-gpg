@@ -228,3 +228,11 @@ gpgconf --launch gpg-agent
 ## Encrypt message
 
 ## Github
+
+You can use YubiKey to sign GitHub commits and tags. To configure a signing key:
+
+```bash
+git config --global user.signingkey SOME_KEY_ID...
+```
+
+then commit with `-S` option.
