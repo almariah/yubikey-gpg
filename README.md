@@ -3,8 +3,11 @@
 If you want to delete everything after creating or playing with keys
 
 ```bash
+rm -r ~/.gnupg/private-keys-v1.d/*
 gpg --delete-secret-key "Abdullah Almariah"
 gpg --delete-key "Abdullah Almariah"
+gpgconf --kill gpg-agent
+gpgconf --launch gpg-agent
 ```
 
 To list all keys:
