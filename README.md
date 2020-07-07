@@ -10,6 +10,12 @@ gpgconf --kill gpg-agent
 gpgconf --launch gpg-agent
 ```
 
+To reset the yubikey GPG key:
+
+```bash
+ykman openpgp reset
+```
+
 To list all keys:
 
 ```
