@@ -1,4 +1,6 @@
-# GPG
+# README
+
+## GPG
 
 If you want to delete everything after creating or playing with keys
 
@@ -18,11 +20,11 @@ ykman openpgp reset
 
 To list all keys:
 
-```
+```text
 gpg -k
 ```
 
-## Steps
+### Steps
 
 * Configure `GnuPG`:
 
@@ -43,19 +45,19 @@ EOF
 ```
 
 * Generate Master Key with these spec:
-    - `RSA (sign only)`
-    - `4096` bits
-    - for `5y`
-    - `Abdullah Almariah`
-    - `abdullahalmariah@gmail.com`
+  * `RSA (sign only)`
+  * `4096` bits
+  * for `5y`
+  * `Abdullah Almariah`
+  * `abdullahalmariah@gmail.com`
 
 ```bash
 gpg --full-generate-key
 ```
 
-After running the previous command, we can get the key ID (example: `0xD60BAB29C43A7D86`):
+After running the previous command, we can get the key ID \(example: `0xD60BAB29C43A7D86`\):
 
-```
+```text
 ...
 Note that this key cannot be used for encryption.  You may want to use
 the command "--edit-key" to generate a subkey for this purpose.
@@ -105,11 +107,10 @@ gpg -a --output ~/gpg/0xD60BAB29C43A7D86.subkeys.asc --export-secret-subkey 0xD6
 ```
 
 * Backup the following files to 2 usb sticks and keep them in safe place.
-    - `~/gpg/0xD60BAB29C43A7D86.master.asc`
-    - `~/gpg/0xD60BAB29C43A7D86.subkeys.asc`
-    - `~/gpg/revoke.asc`
-    - `~/.gnupg/gpg.conf`
-
+  * `~/gpg/0xD60BAB29C43A7D86.master.asc`
+  * `~/gpg/0xD60BAB29C43A7D86.subkeys.asc`
+  * `~/gpg/revoke.asc`
+  * `~/.gnupg/gpg.conf`
 * Trust the keys by the following command and then type `trust` and choose `I trust ultimately`
 
 ```bash
@@ -122,9 +123,9 @@ gpg --edit-key 0xD60BAB29C43A7D86
  gpg --card-edit
 ```
 
-then type `admin`, then `passwd`. Now change the password if it is the first time by selecting `change PIN`. If the first time the old PIN is `123456`. Then change admin PIN (`change Admin PIN`). The old if it is the first time, the old PIN is `12345678`
+then type `admin`, then `passwd`. Now change the password if it is the first time by selecting `change PIN`. If the first time the old PIN is `123456`. Then change admin PIN \(`change Admin PIN`\). The old if it is the first time, the old PIN is `12345678`
 
-Then exit `passwd` menu (`q`). Then type `url`and set to `https://keybase.io/test/key.asc`.
+Then exit `passwd` menu \(`q`\). Then type `url`and set to `https://keybase.io/test/key.asc`.
 
 Set the name by typing `name` and set `Almariah` and `Abdullah`.
 
@@ -146,17 +147,17 @@ Select the type as `Signature key`.
 
 Now un-toggle key 1 by typing `key 1` and then toggle key 2 by typing `key 2`. Repeat the previous steps but with `Encryption key` for key 2. Further repeat again for key 3 with `Authentication key`. Finally type `save`
 
-* Enabling Touch-to-Sign/Decrypt (for more security if something happened in background):
+* Enabling Touch-to-Sign/Decrypt \(for more security if something happened in background\):
 
 ```bash
 # it could be better to try it on mac after installing yubikey-manager
 ykman openpgp touch enc on
-ykman openpgp touch sig on 
+ykman openpgp touch sig on
 ```
 
 * Share the public key by exporting the public key using
 
-```
+```text
 gpg --export -a --output ~/gpg/0xD60BAB29C43A7D86.pub.asc 0xD60BAB29C43A7D86
 ```
 
@@ -174,11 +175,11 @@ sudo yum install https://prerelease.keybase.io/keybase_amd64.rpm
 keybase pgp select
 ```
 
-## Configure gpg-agent
+### Configure gpg-agent
 
-First install GPG suit on macOS (disable Mail.app plugin since it costs memory). Then configure the gpg-agent (`$HOME/.gnupg/gpg-agent.conf`) as follow:
+First install GPG suit on macOS \(disable Mail.app plugin since it costs memory\). Then configure the gpg-agent \(`$HOME/.gnupg/gpg-agent.conf`\) as follow:
 
-```
+```text
 default-cache-ttl 600
 max-cache-ttl 7200
 enable-ssh-support
@@ -190,7 +191,7 @@ To use `gpg-agent` with `SSH` we need to set `SSH_AUTH_SOCK` as follow:
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 ```
 
-You can export to bash (`$HOME/.bashrc`) or Zsh `$HOME/.zshrc` config.
+You can export to bash \(`$HOME/.bashrc`\) or Zsh `$HOME/.zshrc` config.
 
 Now you can import the GPG public key by:
 
@@ -207,23 +208,22 @@ Then you can plug in the yubikey and check its status:
 gpg --card-status
 ```
 
-Then trust the key (optional):
+Then trust the key \(optional\):
 
 ```bash
 # to list keys and then find the pub key ID
 # gpg -k
 
-gpg --edit-key SOME_ID... 
+gpg --edit-key SOME_ID...
 ```
 
 Then type `trust` to trust the key.
 
 To check SSH agent if the SSH public key has been added:
 
-```
+```text
 ssh-add -L
 ```
-
 
 Not sure
 
@@ -233,10 +233,9 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 ```
 
+### Encrypt message
 
-## Encrypt message
-
-## Github
+### Github
 
 You can use YubiKey to sign GitHub commits and tags. To configure a signing key:
 
@@ -246,7 +245,7 @@ git config --global user.signingkey SOME_KEY_ID...
 
 then commit with `-S` option.
 
-## Switch to another yubikey
+### Switch to another yubikey
 
 If you switched to another yubikey run the following:
 
@@ -256,6 +255,8 @@ gpgconf --kill gpg-agent
 gpgconf --launch gpg-agent
 ```
 
-# References
+## References
 
-* https://zeos.ca/post/2018/gpg-yubikey5/
+* [https://zeos.ca/post/2018/gpg-yubikey5/](https://zeos.ca/post/2018/gpg-yubikey5/)
+* more
+
